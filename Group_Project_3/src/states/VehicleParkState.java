@@ -20,7 +20,7 @@ public class VehicleParkState extends VehicleState {
 
 	@Override
 	public void gearPark() {
-		if (VehicleContext.speed == 0) {
+		if (VehicleContext.getSpeed() == 0) {
 			UserInterface.gearText.setText("Vehicle is Parked");
 		} else {
 			// Vehicle is still moving, even though in the BRAKE state. The act
