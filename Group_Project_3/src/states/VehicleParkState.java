@@ -1,21 +1,21 @@
 package states;
 
-public class gearDriveState extends VehicleState {
-	private static gearDriveState instance;
+public class VehicleParkState extends VehicleState {
+	private static VehicleParkState instance;
 	
-	private gearDriveState() {
+	private VehicleParkState() {
 		instance = this;
 	}
 	
-	public static gearDriveState instance() {
+	public static VehicleParkState instance() {
         if (instance == null) {
-            instance = new gearDriveState();
+            instance = new VehicleParkState();
         }
         return instance;
     }
 	
 	@Override
-	public void gearDrive() {
+	public void gearPark() {
 		
 	}
 	

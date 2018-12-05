@@ -1,13 +1,11 @@
+
 package main;
+
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.Labeled;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
@@ -24,23 +22,25 @@ import javafx.stage.Stage;
  * 
  */
 
-public class UserInterface extends Application implements EventHandler<ActionEvent> {
+public class UserInterface extends Application {
+	static TextField powerText = new TextField();
+	static TextField gearText = new TextField();
+	static TextField driveText = new TextField();
+	static GridPane gridPane = new GridPane();
+	static TextArea textArea = new TextArea();
+
 	Text titleText = new Text("Vehicle Operations");
-	Button onButton = new Button("On");
-	Button offButton = new Button("Off");
-	Button parkButton = new Button("Park");
-	Button driveButton = new Button("Drive");
-	Button decelerateButton = new Button("Brake");
-	Button accelerateButton = new Button("Accelerate");
+	private GUIButton onButton = new OnButton("On");
+	private GUIButton offButton = new OffButton("Off");
+	private GUIButton parkButton = new ParkButton("Park");
+	private GUIButton driveButton = new DriveButton("Drive");
+	private GUIButton accelerateButton = new AccelerateButton("Accelerate");
+	private GUIButton brakeButton = new BrakeButton("Brake");
+
 	Label powerLabel = new Label("Power:\t");
 	Label gearLabel = new Label("Gear:\t");
 	Label driveLabel = new Label("Drive:\t");
-	TextField powerText = new TextField();
-	TextField gearText = new TextField();
-	TextField driveText = new TextField();
 
-	GridPane gridPane = new GridPane();
-	TextArea textArea = new TextArea();
 	private int labelCol = 0;
 	private int firstCol = labelCol + 1;
 	private int secondCol = firstCol + 1;
@@ -49,10 +49,7 @@ public class UserInterface extends Application implements EventHandler<ActionEve
 	private int gearRow = 3;
 	private int driveRow = 4;
 
-	//static VehicleContext car;
-
 	public static void main(String[] args) {
-		//car = new VehicleContext().instance();
 		VehicleContext.instance();
 		launch(args);
 	}
@@ -75,8 +72,6 @@ public class UserInterface extends Application implements EventHandler<ActionEve
 		setLabels();
 		setTextFields();
 		setButtons();
-		setButtonActions();
-
 		Scene scene = new Scene(gridPane, 500, 300);
 		primaryStage.setScene(scene);
 		primaryStage.show();
@@ -92,23 +87,11 @@ public class UserInterface extends Application implements EventHandler<ActionEve
 		gridPane.add(driveButton, firstCol, gearRow);
 		gridPane.add(parkButton, secondCol, gearRow);
 		gridPane.add(accelerateButton, firstCol, driveRow);
-		gridPane.add(decelerateButton, secondCol, driveRow);
+		gridPane.add(brakeButton, secondCol, driveRow);
 	}
 
 	/*
-	 * Sets action for each button pressed
-	 */
-	private void setButtonActions() {
-		onButton.setOnAction(this);
-		offButton.setOnAction(this);
-		parkButton.setOnAction(this);
-		driveButton.setOnAction(this);
-		accelerateButton.setOnAction(this);
-		decelerateButton.setOnAction(this);
-	}
-
-	/*
-	 * Sets the initailized text fields
+	 * Sets the initialized text fields
 	 */
 	private void setTextFields() {
 		gridPane.add(powerText, textCol, powerRow);
@@ -132,44 +115,4 @@ public class UserInterface extends Application implements EventHandler<ActionEve
 		gridPane.add(gearLabel, labelCol, gearRow);
 		gridPane.add(driveLabel, labelCol, driveRow);
 	}
-
-	/*
-	 * Handles button actions
-	 */
-	@Override
-	public void handle(ActionEvent event) {
-		Object pressed = event.getSource();
-		String t = (String) ((Labeled) pressed).getText();
-		switch (t) {
-		case "On":
-			powerText.setText("Vehicle is On");
-			//car.isOff = false;
-			break;
-		case "Off":
-			powerText.setText("Vehicle is Off");
-			//car.isOff = true;
-			break;
-
-		case "Park":
-			gearText.setText("Vehicle is Parked");
-			//car.gear.isParked = true;
-			break;
-
-		case "Drive":
-			gearText.setText("Vehicle is in Drive");
-			//car.gear.isParked = false;
-			break;
-
-		case "Accelerate":
-			driveText.setText("Accelerator is pressed");
-			//car.gear.isAccelerating = true;
-			break;
-
-		case "Brake":
-			driveText.setText("Brake is pressed");
-			//car.gear.isAccelerating = false;
-			break;
-		}
-	}
-
 }

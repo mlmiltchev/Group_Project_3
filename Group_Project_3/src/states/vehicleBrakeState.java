@@ -1,15 +1,15 @@
 package states;
 
-public class vehicleBrakeState extends VehicleState {
-	private static vehicleBrakeState instance;
+public class VehicleBrakeState extends VehicleState {
+	private static VehicleBrakeState instance;
 	
-	private vehicleBrakeState() {
+	private VehicleBrakeState() {
 		instance = this;
 	}
 	
-	public static vehicleBrakeState instance() {
+	public static VehicleBrakeState instance() {
         if (instance == null) {
-            instance = new vehicleBrakeState();
+            instance = new VehicleBrakeState();
         }
         return instance;
     }
