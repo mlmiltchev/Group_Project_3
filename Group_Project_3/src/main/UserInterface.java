@@ -2,6 +2,7 @@
 package main;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -12,6 +13,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 /**
  * 
@@ -74,7 +76,12 @@ public class UserInterface extends Application {
 		Scene scene = new Scene(gridPane, 500, 300);
 		primaryStage.setScene(scene);
 		primaryStage.show();
-
+		primaryStage.addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, new EventHandler<WindowEvent>() { //End program - credits to Brahma Dathan Microwave
+            @Override
+            public void handle(WindowEvent window) {
+                System.exit(0);
+            }
+        });
 	}
 
 	/*
