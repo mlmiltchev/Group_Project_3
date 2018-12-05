@@ -48,10 +48,10 @@ public class UserInterface extends Application implements EventHandler<ActionEve
 	private int gearRow = 3;
 	private int driveRow = 4;
 
-	static Vehicle car;
+	static VehicleContext car;
 
 	public static void main(String[] args) {
-		car = new Vehicle();
+		car = new VehicleContext();
 		launch(args);
 	}
 
