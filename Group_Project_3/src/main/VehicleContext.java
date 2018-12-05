@@ -1,22 +1,21 @@
 package main;
 
-import states.VehicleOnState;
+import states.VehicleOffState;
 import states.VehicleState;
 
 public class VehicleContext {
-	public boolean isOff = true;
-	public Gear gear = new Gear();
-
-	public static VehicleState currentState;
-	private VehicleDisplay display;
+	public VehicleState currentState;
+	// private VehicleDisplay display;
 	private static VehicleContext instance;
+	public static int speed;
 
 	/**
-	 * Make it a singleton
+	 * Make it a singleton and starts the Vehicle in the OFF state per
+	 * instruction.
 	 */
 	private VehicleContext() {
 		instance = this;
-		currentState = VehicleOnState.instance();
+		currentState = VehicleOffState.instance();
 	}
 
 	/**
@@ -35,49 +34,9 @@ public class VehicleContext {
 		display = this.display;
 	}
 
-	public void powerOn() {
-
-	}
-
-	public void powerOff() {
-
-	}
-
-	public void gearPark() {
-
-	}
-
-	public void gearDrive() {
-
-	}
-
-	public void accelerate() {
-
-	}
-
-	public void decelerate() {
-
-	}
-
 	public void changeState(VehicleState state) {
 		currentState.end();
 		currentState = state;
 		currentState.start();
-	}
-
-	public void showPower() {
-
-	}
-
-	public void showGear() {
-
-	}
-
-	public void showAccelDecel() {
-
-	}
-
-	public void showSpeed() {
-
 	}
 }

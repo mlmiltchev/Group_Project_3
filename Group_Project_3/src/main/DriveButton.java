@@ -1,6 +1,7 @@
 package main;
 
 import javafx.event.ActionEvent;
+import states.VehicleDriveState;
 
 public class DriveButton extends GUIButton {
 
@@ -11,8 +12,10 @@ public class DriveButton extends GUIButton {
 
 	@Override
 	public void handle(ActionEvent event) {
-		// do Drive event logic here
-		UserInterface.gearText.setText("Vehicle is in Drive");
+		if (super.getCurrentState() == "PARKED" || super.getCurrentState() == "ON") {
+			VehicleContext.instance().changeState(VehicleDriveState.instance());
+		}
+		// Vehicle can only access DRIVE from ON or PARKED position
 	}
 
 }

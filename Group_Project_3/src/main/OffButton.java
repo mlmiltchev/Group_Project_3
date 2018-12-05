@@ -1,6 +1,7 @@
 package main;
 
 import javafx.event.ActionEvent;
+import states.VehicleOffState;
 
 public class OffButton extends GUIButton {
 
@@ -10,8 +11,9 @@ public class OffButton extends GUIButton {
 
 	@Override
 	public void handle(ActionEvent event) {
-		// do Off Event logic here
-		UserInterface.powerText.setText("Vehicle is Off");
+		if (super.getCurrentState() == "PARKED") {
+			VehicleContext.instance().changeState(VehicleOffState.instance());
+		}
+		// no other states will turn the vehicle OFF.
 	}
-
 }

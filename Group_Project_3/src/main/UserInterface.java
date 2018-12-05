@@ -6,7 +6,6 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
@@ -23,13 +22,13 @@ import javafx.stage.Stage;
  */
 
 public class UserInterface extends Application {
-	static TextField powerText = new TextField();
-	static TextField gearText = new TextField();
-	static TextField driveText = new TextField();
-	static GridPane gridPane = new GridPane();
-	static TextArea textArea = new TextArea();
+	public static TextField powerText = new TextField();
+	public static TextField gearText = new TextField();
+	public static TextField driveText = new TextField();
+	public static GridPane gridPane = new GridPane();
 
-	Text titleText = new Text("Vehicle Operations");
+	public static Label speedLabel = new Label("\tSpeed: 0 MPH");
+
 	private GUIButton onButton = new OnButton("On");
 	private GUIButton offButton = new OffButton("Off");
 	private GUIButton parkButton = new ParkButton("Park");
@@ -37,17 +36,18 @@ public class UserInterface extends Application {
 	private GUIButton accelerateButton = new AccelerateButton("Accelerate");
 	private GUIButton brakeButton = new BrakeButton("Brake");
 
-	Label powerLabel = new Label("Power:\t");
-	Label gearLabel = new Label("Gear:\t");
-	Label driveLabel = new Label("Drive:\t");
+	private final Text titleText = new Text("Vehicle Operations");
+	private final Label powerLabel = new Label("Power:\t");
+	private final Label gearLabel = new Label("Gear:\t");
+	private final Label driveLabel = new Label("Drive:\t");
 
-	private int labelCol = 0;
-	private int firstCol = labelCol + 1;
-	private int secondCol = firstCol + 1;
-	private int textCol = secondCol + 1;
-	private int powerRow = 2;
-	private int gearRow = 3;
-	private int driveRow = 4;
+	private final int labelCol = 0;
+	private final int firstCol = labelCol + 1;
+	private final int secondCol = firstCol + 1;
+	private final int textCol = secondCol + 1;
+	private final int powerRow = 2;
+	private final int gearRow = 3;
+	private final int driveRow = 4;
 
 	public static void main(String[] args) {
 		VehicleContext.instance();
@@ -63,12 +63,11 @@ public class UserInterface extends Application {
 		gridPane.setAlignment(Pos.CENTER);
 		gridPane.setPadding(new Insets(10, 10, 10, 10));
 		gridPane.setVgap(10);
-		textArea.setWrapText(true);
+
 		primaryStage.setTitle("Group Project #3: Vehicle GUI");
 		titleText.setFont(Font.font("Times New Roman", FontWeight.NORMAL, 20));
 		gridPane.add(titleText, 1, 0);
-		gridPane.add(textArea, 0, 5, 3, 1);
-		textArea.setDisable(true);
+
 		setLabels();
 		setTextFields();
 		setButtons();
@@ -114,5 +113,14 @@ public class UserInterface extends Application {
 		gridPane.add(powerLabel, labelCol, powerRow);
 		gridPane.add(gearLabel, labelCol, gearRow);
 		gridPane.add(driveLabel, labelCol, driveRow);
+		gridPane.add(speedLabel, textCol, driveRow + 1);
 	}
+
+	/*
+	 * Updates the speed on the UI
+	 */
+	public static void updateSpeed(int mph) {
+		speedLabel.setText((String.format("\tSpeed: %d MPH", mph)));
+	}
+
 }

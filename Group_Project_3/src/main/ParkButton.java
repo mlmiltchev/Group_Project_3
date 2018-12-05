@@ -1,6 +1,7 @@
 package main;
 
 import javafx.event.ActionEvent;
+import states.VehicleParkState;
 
 public class ParkButton extends GUIButton {
 
@@ -10,8 +11,10 @@ public class ParkButton extends GUIButton {
 
 	@Override
 	public void handle(ActionEvent event) {
-		// do Park event logic here
-		UserInterface.gearText.setText("Vehicle is Parked");
+		if (super.getCurrentState() == "BRAKING") {
+			VehicleContext.instance().changeState(VehicleParkState.instance());
+		}
+		// Vehicle can only be PARKED when brake is applied.
 	}
 
 }
