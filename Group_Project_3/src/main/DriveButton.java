@@ -12,10 +12,10 @@ public class DriveButton extends GUIButton {
 
 	@Override
 	public void handle(ActionEvent event) {
-		if (super.getCurrentState() == "PARKED" || super.getCurrentState() == "ON") {
+		if (super.getCurrentState() == "PARKED") {
 			VehicleContext.instance().changeState(VehicleDriveState.instance());
 		}
-		// Vehicle can only access DRIVE from ON or PARKED position
+		// Vehicle can only access DRIVE from the PARKED state
 	}
 
 }

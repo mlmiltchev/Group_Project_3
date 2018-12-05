@@ -1,6 +1,7 @@
 package states;
 
 import main.UserInterface;
+import main.VehicleContext;
 
 public class VehicleOnState extends VehicleState {
 	private static VehicleOnState instance;
@@ -25,6 +26,7 @@ public class VehicleOnState extends VehicleState {
 	@Override
 	public void start() {
 		vehicleOn();
+		VehicleContext.instance().changeState(VehicleParkState.instance());
 	}
 
 	@Override

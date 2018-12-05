@@ -18,4 +18,8 @@ public class GUIButton extends Button implements EventHandler<ActionEvent> {
 	public String getCurrentState() {
 		return VehicleContext.instance().currentState.getState().toString();
 	}
+
+	public int getCurrentSpeed() {
+		return VehicleContext.instance().getSpeed();
+	}
 }

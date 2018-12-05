@@ -7,7 +7,7 @@ public class VehicleContext {
 	public VehicleState currentState;
 	// private VehicleDisplay display;
 	private static VehicleContext instance;
-	private static int speed;
+	private int speed = 0;
 
 	/**
 	 * Make it a singleton and starts the Vehicle in the OFF state per
@@ -36,11 +36,11 @@ public class VehicleContext {
 		currentState.start();
 	}
 
-	public static int getSpeed() {
+	public int getSpeed() {
 		return speed;
 	}
 
-	public static void setSpeed(int mph) {
+	public void setSpeed(int mph) {
 		speed = mph;
 	}
 }
