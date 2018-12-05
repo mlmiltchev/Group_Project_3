@@ -34,7 +34,6 @@ public class VehicleDriveState extends VehicleState {
 	@Override
 	public State getState() {
 		return state;
-
 	}
 
 }

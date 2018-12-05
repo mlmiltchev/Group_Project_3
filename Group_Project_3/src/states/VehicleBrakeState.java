@@ -1,10 +1,15 @@
 package states;
 
+import javafx.application.Platform;
+import main.Notifiable;
 import main.UserInterface;
+import main.VehicleContext;
+import time.Timer;
 
-public class VehicleBrakeState extends VehicleState {
+public class VehicleBrakeState extends VehicleState implements Notifiable {
 	private static VehicleBrakeState instance;
 	private State state = State.BRAKING;
+	private Timer timer;
 
 	private VehicleBrakeState() {
 		instance = this;
@@ -25,13 +30,13 @@ public class VehicleBrakeState extends VehicleState {
 	@Override
 	public void start() {
 		vehicleBrake();
-		// STILL NEED SLOWING DOWN LOGIC
-
+		timer = new Timer(this,false);
 	}
 
 	@Override
 	public void end() {
-		// TODO Auto-generated method stub
+		timer.stop();
+		timer = null;
 	}
 
 	@Override
@@ -39,4 +44,13 @@ public class VehicleBrakeState extends VehicleState {
 		return state;
 	}
 
+	@Override
+	public void timerTicked(int time) {
+		Platform.runLater(new Runnable(){
+			@Override
+			public void run() {
+				VehicleContext.instance().setSpeed(VehicleContext.instance().getSpeed()-5);			
+			}
+		});
+	}
 }

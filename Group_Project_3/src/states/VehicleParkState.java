@@ -24,7 +24,7 @@ public class VehicleParkState extends VehicleState {
 			UserInterface.gearText.setText("Vehicle is Parked");
 		} else {
 			// Vehicle is still moving, even though in the BRAKE state. The act
-			// of slowing down is still in progress).
+			// of slowing down is still in progress.
 		}
 	}
 

@@ -5,7 +5,6 @@ import states.VehicleState;
 
 public class VehicleContext {
 	public VehicleState currentState;
-	// private VehicleDisplay display;
 	private static VehicleContext instance;
 	private int speed = 0;
 
@@ -42,5 +41,6 @@ public class VehicleContext {
 
 	public void setSpeed(int mph) {
 		speed = mph;
+		UserInterface.updateSpeed(speed);
 	}
 }
