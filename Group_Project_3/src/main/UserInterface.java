@@ -16,10 +16,12 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 /**
+ * UserInterface is the main creator and handler of the interface
+ * that the user handles. It displays the current state of the vehicle.
+ *   
+ * ICS372-01 - Group Project #3
  * 
- * @author Thuy Hoang
- * @course ICS372
- * @Assignment Group Project #3
+ * @author Thuy Hoang, Mihail Miltchev
  * 
  */
 

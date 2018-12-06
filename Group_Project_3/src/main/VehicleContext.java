@@ -3,6 +3,16 @@ package main;
 import states.VehicleOffState;
 import states.VehicleState;
 
+/**
+ * VehicleContex is the main driver behind the states.
+ * It holds the current state and transitions between states.
+ *   
+ * ICS372-01 - Group Project #3
+ * 
+ * @author Mihail Miltchev
+ * 
+ */
+
 public class VehicleContext {
 	public VehicleState currentState;
 	private static VehicleContext instance;

@@ -4,6 +4,16 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 
+/**
+ * GUIButton handles the action for pressing a button,
+ * acts as a base for all created buttons.
+ * 
+ * ICS372-01 - Group Project #3
+ * 
+ * @author Thuy Hoang
+ * 
+ */
+
 public class GUIButton extends Button implements EventHandler<ActionEvent> {
 
 	public GUIButton(String string) {
@@ -11,6 +21,12 @@ public class GUIButton extends Button implements EventHandler<ActionEvent> {
 		setOnAction(this);
 	}
 
+	/**
+	 * Handles the ActionEvent on the button.
+	 * 
+	 * @param event
+	 * 			the event action on the button
+	 */
 	@Override
 	public void handle(ActionEvent event) {
 	}

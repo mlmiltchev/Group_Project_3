@@ -3,6 +3,15 @@ package main;
 import javafx.event.ActionEvent;
 import states.VehicleDriveState;
 
+/**
+ * DriveButton handles the action for pressing the drive button
+ * 
+ * ICS372-01 - Group Project #3
+ * 
+ * @author Thuy Hoang
+ * 
+ */
+
 public class DriveButton extends GUIButton {
 
 	public DriveButton(String string) {
@@ -10,6 +19,12 @@ public class DriveButton extends GUIButton {
 
 	}
 
+	/**
+	 * Handles the ActionEvent on the button.
+	 * 
+	 * @param event
+	 * 			the event action on the button
+	 */
 	@Override
 	public void handle(ActionEvent event) {
 		if (super.getCurrentState() == "PARKED") {
