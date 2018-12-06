@@ -34,8 +34,8 @@ public class ParkButton extends GUIButton {
 	 */
 	@Override
 	public void handle(ActionEvent event) {
-		if (super.getCurrentState() == "BRAKING"
-				|| (super.getCurrentSpeed() == 0 && super.getCurrentState() != "OFF")) {
+		if (super.getCurrentSpeed() == 0
+				&& (super.getCurrentState() == "BRAKING" || super.getCurrentState() != "OFF")) {
 			VehicleContext.instance().changeState(VehicleParkState.instance());
 		}
 		// Vehicle can only be PARKED when brake is applied and speed is 0
