@@ -14,6 +14,13 @@ import states.VehicleBrakeState;
 
 public class BrakeButton extends GUIButton {
 
+	/**
+	 * Public constructor to create the brake button with the 
+	 * passed text.
+	 * 
+	 * @param string
+	 * 			the text to create the button with
+	 */
 	public BrakeButton(String string) {
 		super(string);
 	}

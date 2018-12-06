@@ -15,10 +15,11 @@ import states.VehicleAccelerateState;
 public class AccelerateButton extends GUIButton {
 
 	/**
-	 * Initializes AccelerateButton.
+	 * Public constructor to create the acceleration button with the 
+	 * passed text.
 	 * 
 	 * @param string
-	 * 			the text on the button
+	 * 			the text to create the button with
 	 */
 	public AccelerateButton(String string) {
 		super(string);

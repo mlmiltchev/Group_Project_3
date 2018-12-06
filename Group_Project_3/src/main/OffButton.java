@@ -15,10 +15,23 @@ import states.VehicleOffState;
 
 public class OffButton extends GUIButton {
 
+	/**
+	 * Public constructor to create the off button with the 
+	 * passed text.
+	 * 
+	 * @param string
+	 * 			the text to create the button with
+	 */
 	public OffButton(String string) {
 		super(string);
 	}
 
+	/**
+	 * Handles the ActionEvent on the button.
+	 * 
+	 * @param event
+	 * 			the click event action on the button
+	 */
 	@Override
 	public void handle(ActionEvent event) {
 		if (super.getCurrentState() == "PARKED") {

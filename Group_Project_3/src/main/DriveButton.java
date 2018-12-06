@@ -14,9 +14,15 @@ import states.VehicleDriveState;
 
 public class DriveButton extends GUIButton {
 
+	/**
+	 * Public constructor to create the drive button with the 
+	 * passed text.
+	 * 
+	 * @param string
+	 * 			the text to create the button with
+	 */
 	public DriveButton(String string) {
 		super(string);
-
 	}
 
 	/**

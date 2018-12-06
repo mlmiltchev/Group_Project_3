@@ -38,17 +38,34 @@ public class VehicleContext {
 		}
 		return instance;
 	}
-
+	
+	/**
+	 * Changes the state of the vehicle, ends the old state and starts the new one.
+	 * 
+	 * @param state
+	 * 			the new state to transition to.
+	 */
 	public void changeState(VehicleState state) {
 		currentState.end();
 		currentState = state;
 		currentState.start();
 	}
 
+	/**
+	 * Return the vehicle speed
+	 * 
+	 * @return the speed of the vehicle
+	 */
 	public int getSpeed() {
 		return speed;
 	}
 
+	/**
+	 * Changes the speed of the vehicle.
+	 * 
+	 * @param mph
+	 * 			the new mph to update the speed to.
+	 */
 	public void setSpeed(int mph) {
 		speed = mph;
 		UserInterface.updateSpeed(speed);

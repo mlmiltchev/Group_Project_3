@@ -53,6 +53,11 @@ public class UserInterface extends Application {
 	private final int gearRow = 3;
 	private final int driveRow = 4;
 
+	/**
+	 * Launches the GUI.
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		VehicleContext.instance();
 		launch(args);
@@ -86,7 +91,7 @@ public class UserInterface extends Application {
         });
 	}
 
-	/*
+	/**
 	 * Sets buttons to be displayed
 	 */
 	private void setButtons() {
@@ -98,7 +103,7 @@ public class UserInterface extends Application {
 		gridPane.add(brakeButton, secondCol, driveRow);
 	}
 
-	/*
+	/**
 	 * Sets the initialized text fields
 	 */
 	private void setTextFields() {
@@ -115,7 +120,7 @@ public class UserInterface extends Application {
 		driveText.setDisable(true);
 	}
 
-	/*
+	/**
 	 * Sets the labels for the buttons
 	 */
 	private void setLabels() {
@@ -125,7 +130,7 @@ public class UserInterface extends Application {
 		gridPane.add(speedLabel, textCol, driveRow + 1);
 	}
 
-	/*
+	/**
 	 * Updates the speed on the UI
 	 */
 	public static void updateSpeed(int mph) {
